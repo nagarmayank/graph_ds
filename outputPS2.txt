@@ -1,0 +1,32 @@
+--------Function displayActMov--------
+Total number of movies: 10
+Total number of actors: 15
+List of movies:
+PK
+Gully Boy
+ADHM
+Zindagi Na Milegi Dobara
+Sanju
+Krish
+Munna Bhai MBBS
+Highway
+Dangal
+Kesari
+
+List of actors:
+Alia Bhat
+Ranbir Kapoor
+Aamir Khan
+Farhan Akhtar
+Akshay Kumar
+Ranveer Singh
+Randeep Hooda
+Anushka Sharma
+Arshad Warsi
+Dia Mirza
+Hritik
+Fatima Sana
+Parineeti Chopra
+Sanjay Dutt
+Katrina Kaif
+--------------------------------------
