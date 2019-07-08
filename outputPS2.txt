@@ -1,6 +1,6 @@
 --------Function displayActMov--------
-Total number of movies: 10
-Total number of actors: 15
+Total number of movies: 11
+Total number of actors: 16
 List of movies:
 PK
 Gully Boy
@@ -11,10 +11,12 @@ Krish
 Munna Bhai MBBS
 Highway
 Dangal
+Mela
 Kesari
 
 List of actors:
 Alia Bhat
+Twinkle Khanna
 Ranbir Kapoor
 Aamir Khan
 Farhan Akhtar
