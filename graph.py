@@ -7,6 +7,8 @@ class BSGraph(object):
         self.movies = [] #List of all movies
         self.actors = [] #List of all actors
         self.edges = [] # Adjacency Matrix
+        self.first_call_displayMoviesOfActor = True
+        self.first_call_displayActorsOfMovie = True
         for i in range(size):
             self.edges.append([0 for i in range(size)])
     
@@ -97,12 +99,100 @@ class BSGraph(object):
             f.writelines(lines)
         
         return None
+    
+    def readPromptFile(self, filename):
+        """This method reads prompt file for different case conditions"""
+        
+        self.first_call_displayMoviesOfActor = True
+        with open(filename, 'r') as f:
+            for line in f:
+                if line.startswith('searchActor'):
+                    self.displayMoviesOfActor(line[13:].
+                                                      strip(" ").
+                                                      strip("\n"))
+
+                elif line.startswith('searchMovie'):
+                    self.displayActorsOfMovie(line[13:].
+                                                      strip(" ").
+                                                      strip("\n"))
+            
+        return None
+    
+    def displayMoviesOfActor(self, actor):
+        """This method appends to outfile movies for the search actor 
+        passed in prompts file"""
+        
+        lines_to_write = []
+        
+        # Below code is executed for first time call only
+        if self.first_call_displayMoviesOfActor:
+            lines_to_write.append("\n\n--------Function displayMoviesOfActor--------")    
+            self.first_call_displayMoviesOfActor = False
+        
+        # Below code lists movies for the search Actor. If the actor is not 
+        # found in list, then display error accordingly
+        
+        if self.vertices.get(actor):
+            lines_to_write.append("\n\nActor Name: "+ actor)
+            lines_to_write.append("\nList of Movies:")
+            for idx, item in enumerate(self.edges[self.vertices.get(actor)]):
+                if item == 1:
+                    lines_to_write.append("\n")
+                    lines_to_write.append(list(self.vertices.keys())[list(
+                            self.vertices.values()).index(idx)])
+                else:
+                    pass
+        else:
+            lines_to_write.append("\n\n"+ actor+ " is not found in the list")
+        
+        # Write data to outfile
+        with open('outputPS2.txt', 'a') as f:
+            f.writelines(lines_to_write)
+
+        return None
+    
+    def displayActorsOfMovie(self, movie):
+        lines_to_write = []
+        
+        # Below code is executed for first time call only
+        if self.first_call_displayActorsOfMovie:
+            lines_to_write.append("\n\n--------Function displayActorsOfMovies--------")    
+            self.first_call_displayActorsOfMovie = False
+        
+        # Below code lists movies for the search Actor. If the actor is not 
+        # found in list, then display error accordingly
+        print(movie)
+        if self.vertices.get(movie):
+            lines_to_write.append("\n\nMovie Name: "+ movie)
+            lines_to_write.append("\nList of Actors:")
+            for idx, item in enumerate(self.edges[self.vertices.get(movie)]):
+                if item == 1:
+                    lines_to_write.append("\n")
+                    lines_to_write.append(list(self.vertices.keys())[list(
+                            self.vertices.values()).index(idx)])
+                else:
+                    pass
+        else:
+            lines_to_write.append("\n\n"+ movie+ " is not found in the list")
+        
+        # Write data to outfile
+        with open('outputPS2.txt', 'a') as f:
+            f.writelines(lines_to_write)
+
+        return None
 
 if __name__ == "__main__":
-    movAct = BSGraph(100)
-    movAct.readActMovfile("inputPS2.txt") # Read input file
-    movAct.displayActMov() # List movies and actors in input file
 
-#print(mov.vertices)
-#print(mov.verticesList)
-#print(mov.edges)
+    # Instantiate Graph object
+    movAct = BSGraph(100)
+    
+    # Read input file
+    movAct.readActMovfile("inputPS2.txt")
+    
+    # List movies and actors in input file
+    movAct.displayActMov()
+    
+    # Reads prompt file and executes multiple functions
+    movAct.readPromptFile("promptsPS2.txt")
+    
+    
