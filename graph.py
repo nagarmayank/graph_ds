@@ -48,6 +48,9 @@ class BSGraph(object):
         graph vertex and there is an edge if an actor has worked in the 
         specified movie'''
         
+        with open('outputPS2.txt', 'w') as f:
+            f.writelines([])
+            
         temp_ls = []
         self.movies = []
         self.actors = []
@@ -57,13 +60,16 @@ class BSGraph(object):
                 for idx, item in enumerate(temp_ls):
                     item = item.strip("\n").strip(" ")
                     count = len(self.verticesList) - self.verticesList.count(0)
-                    self.add_vertex(count, item)
-                    if idx == 0: # 1st item in the list represents movie
-                        self.movies.append(item)
-                        movieName = item
-                    else: # except 1st item, all are actors
-                        self.actors.append(item)
-                        self.add_edge(movieName, item)
+                    if count < self.size:
+                        self.add_vertex(count, item)
+                        if idx == 0: # 1st item in the list represents movie
+                            self.movies.append(item)
+                            movieName = item
+                        else: # except 1st item, all are actors
+                            self.actors.append(item)
+                            self.add_edge(movieName, item)
+                    else:
+                        return 'error' #Increase the size of graph and re-run
             
         return None
     
@@ -98,7 +104,7 @@ class BSGraph(object):
         lines.append("--------------------------------------")
         
         # Open the file in write mode and write data using the list created
-        with open('outputPS2.txt', 'w') as f:
+        with open('outputPS2.txt', 'a') as f:
             f.writelines(lines)
         
         return None
@@ -223,6 +229,7 @@ class BSGraph(object):
                 if i == movieB_id:
                     related = previous
                     final_count = count
+                    continue
                 previous = i
     
             # Two movies are related by an actor, hence, final count should be 3
@@ -271,6 +278,7 @@ class BSGraph(object):
                                     list(self.vertices.values()).index(i)] + " > "
                 if i == movieB_id:
                     final_path = traverse[0:-3]
+                    continue
             
             # If length of final path is 0, then there is no relation
             if len(final_path) > 0:
@@ -303,12 +311,14 @@ if __name__ == "__main__":
     # Instantiate Graph object
     movAct = BSGraph(100)
     
-    # Read input file
-    movAct.readActMovfile("inputPS2.txt")
-    
-    # List movies and actors in input file
-    movAct.displayActMov()
-    
-    # Reads prompt file and executes multiple functions
-    movAct.readPromptFile("promptsPS2.txt")
+    # Read input file. If error, then don't call further methods
+    if movAct.readActMovfile("inputPS2.txt") is None:
+        # List movies and actors in input file
+        movAct.displayActMov()
+        
+        # Reads prompt file and executes multiple functions
+        movAct.readPromptFile("promptsPS2.txt")
+    else:
+        print("The graph object is instantiated with smaller size \
+              than the vertices expected. Increase the size and re-run")
         
