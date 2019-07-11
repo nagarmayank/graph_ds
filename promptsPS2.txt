@@ -5,3 +5,9 @@ searchMovie: PK
 searchMovie: Dangal
 searchMovie: Sanju
 searchMovie: Spiderman
+RMovies: Gully Boy : Highway
+RMovies: Sanju : Dangal
+RMovies: Spiderman : Dangal
+TMovies: Dangal : ADHM
+TMovies: Dangal : Krish
+TMovies: Avengers : Krish

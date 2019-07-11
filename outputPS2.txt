@@ -45,7 +45,7 @@ Actor Name: Sanjay Dutt
 List of Movies:
 Munna Bhai MBBS
 
-Nawazuddin Siddiquie is not found in the list
+Actor Name: Nawazuddin Siddiquie is not found in the list
 
 --------Function displayActorsOfMovies--------
 
@@ -64,4 +64,32 @@ List of Actors:
 Ranbir Kapoor
 Dia Mirza
 
-Spiderman is not found in the list
+Movie Name: Spiderman is not found in the list
+
+--------Function findMovieRelation --------
+
+Movie: Gully Boy
+Movie: Highway
+Related: Yes, Alia Bhat
+
+Movie: Sanju
+Movie: Dangal
+Related: No
+
+Movie: Spiderman
+Movie: Dangal
+Related: Movie Spiderman is not found
+
+--------Function findMovieTransRelation --------
+
+Movie: Dangal
+Movie: ADHM
+Related: Yes, Dangal > Aamir Khan > PK > Anushka Sharma > ADHM
+
+Movie: Dangal
+Movie: Krish
+Related: No
+
+Movie: Avengers
+Movie: Krish
+Related: Movie Avengers is not found
