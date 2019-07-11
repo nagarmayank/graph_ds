@@ -53,7 +53,7 @@ class BSGraph(object):
                 temp_ls = x.split('/')
                 for idx, item in enumerate(temp_ls):
                     item = item.strip("\n").strip(" ")
-                    count = len(self.verticesList) - self.verticesList.count(0)
+                    count = len(self.verticesList) - self.verticesList.count(0) + 1
                     self.add_vertex(count, item)
                     if idx == 0: # 1st item in the list represents movie
                         self.movies.append(item)
@@ -161,7 +161,6 @@ class BSGraph(object):
         
         # Below code lists movies for the search Actor. If the actor is not 
         # found in list, then display error accordingly
-        print(movie)
         if self.vertices.get(movie):
             lines_to_write.append("\n\nMovie Name: "+ movie)
             lines_to_write.append("\nList of Actors:")

@@ -4,3 +4,4 @@ searchActor: Nawazuddin Siddiquie
 searchMovie: PK
 searchMovie: Dangal
 searchMovie: Sanju
+searchMovie: Spiderman

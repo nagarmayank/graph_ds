@@ -32,3 +32,36 @@ Parineeti Chopra
 Sanjay Dutt
 Katrina Kaif
 --------------------------------------
+
+--------Function displayMoviesOfActor--------
+
+Actor Name: Aamir Khan
+List of Movies:
+Dangal
+PK
+Mela
+
+Actor Name: Sanjay Dutt
+List of Movies:
+Munna Bhai MBBS
+
+Nawazuddin Siddiquie is not found in the list
+
+--------Function displayActorsOfMovies--------
+
+Movie Name: PK
+List of Actors:
+Aamir Khan
+Anushka Sharma
+
+Movie Name: Dangal
+List of Actors:
+Aamir Khan
+Fatima Sana
+
+Movie Name: Sanju
+List of Actors:
+Ranbir Kapoor
+Dia Mirza
+
+Spiderman is not found in the list
