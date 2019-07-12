@@ -112,7 +112,6 @@ class BSGraph(object):
     def readPromptFile(self, filename):
         """This method reads prompt file for different case conditions"""
         
-        self.first_call_displayMoviesOfActor = True
         with open(filename, 'r') as f:
             for line in f:
                 if line.startswith('searchActor'):
@@ -213,7 +212,6 @@ class BSGraph(object):
         lines_to_write.append("\n\nMovie: "+movieA)
         lines_to_write.append("\nMovie: "+movieB)
         
-        movieA_id = self.vertices.get(movieA)
         movieB_id = self.vertices.get(movieB)
         
         # Recursive call to dfs() method to get the complete traversal with
@@ -224,6 +222,7 @@ class BSGraph(object):
 
             # Traverse path until movieB is found and return related Actor
             count = 0
+            previous = -1
             for i in path:
                 count += 1
                 if i == movieB_id:
@@ -261,7 +260,6 @@ class BSGraph(object):
         lines_to_write.append("\n\nMovie: "+movieA)
         lines_to_write.append("\nMovie: "+movieB)
         
-        movieA_id = self.vertices.get(movieA)
         movieB_id = self.vertices.get(movieB)
         
         # Recursive call to dfs() method to get the complete traversal with
