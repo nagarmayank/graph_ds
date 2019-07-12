@@ -2,7 +2,7 @@ class BSGraph(object):
     
     def __init__(self, size):
         self.vertices = {} #dictionary to maintain distinct vertices
-        self.verticesList = [0]*size
+        self.ActMov = [0]*size
         self.size = size
         self.movies = [] #List of all movies
         self.actors = [] #List of all actors
@@ -23,7 +23,7 @@ class BSGraph(object):
         if vertex <= self.size-1:
             if id not in self.vertices.keys():
                 self.vertices[id] = vertex
-                self.verticesList[vertex] = id
+                self.ActMov[vertex] = id
         else:
             print("Cannot add any more vertex to the graph")
             return None
@@ -59,7 +59,7 @@ class BSGraph(object):
                 temp_ls = x.split('/')
                 for idx, item in enumerate(temp_ls):
                     item = item.strip("\n").strip(" ")
-                    count = len(self.verticesList) - self.verticesList.count(0)
+                    count = len(self.ActMov) - self.ActMov.count(0)
                     if count < self.size:
                         self.add_vertex(count, item)
                         if idx == 0: # 1st item in the list represents movie
@@ -86,7 +86,7 @@ class BSGraph(object):
         lines.append("\nTotal number of actors: "+ 
                      str(len(list(set(self.actors)))))
         
-        lines.append("\nList of movies:\n")
+        lines.append("\n\nList of movies:\n")
         
         # Loop through all movies list and write to file
         for movie in list(set(self.movies)):

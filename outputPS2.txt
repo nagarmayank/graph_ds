@@ -1,6 +1,7 @@
 --------Function displayActMov--------
 Total number of movies: 11
 Total number of actors: 16
+
 List of movies:
 PK
 Gully Boy
@@ -49,10 +50,9 @@ Actor Name: Nawazuddin Siddiquie is not found in the list
 
 --------Function displayActorsOfMovies--------
 
-Movie Name: PK
+Movie Name: Krish
 List of Actors:
-Aamir Khan
-Anushka Sharma
+Hritik
 
 Movie Name: Dangal
 List of Actors:

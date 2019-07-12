@@ -1,7 +1,7 @@
 searchActor: Aamir Khan
 searchActor: Sanjay Dutt
 searchActor: Nawazuddin Siddiquie
-searchMovie: PK
+searchMovie: Krish
 searchMovie: Dangal
 searchMovie: Sanju
 searchMovie: Spiderman
